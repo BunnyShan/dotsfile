@@ -1,10 +1,14 @@
-source .bashrc
+source ~/.bashrc
 
 alias ls='ls --color'
 alias ll='ls -l'
 alias h='history'
 alias gitall='git log --graph --pretty=oneline --abbrev-commit'
-
+alias gits='git status'
+alias gitd='git diff'
+alias gitr='git rebase origin/master'
+alias tu='tmux a'
+alias gitf='git fetch --recurse-submodules'
 function git_branch {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
     echo "("${ref#refs/heads/}") ";
@@ -22,7 +26,7 @@ function git_since_last_commit {
 }
 
 export TERM="xterm-color"
-PS1="\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]$ "
+PS1="\[\e[37;40m\]\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\$(git_since_last_commit)\[\033[0m\]$ "
 
 
 alias ls='ls --color'
